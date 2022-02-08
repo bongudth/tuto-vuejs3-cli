@@ -1,9 +1,13 @@
 <template>
-  <Modal 
-    :title="title" 
-    :content="content"
-    :theme="theme"
-  />
+  <button @click="toggleModal">open modal</button>
+  <div v-show="showModal">
+    <Modal
+      :title="title"
+      :content="content"
+      :theme="theme"
+      @close="toggleModal"
+    />
+  </div>
 </template>
 
 <script>
@@ -16,12 +20,16 @@ export default {
   },
   data() {
     return {
+      showModal: false,
       title: 'Ninja Pizza',
       content: 'We don\'t make pizza. We make ninjas.',
       theme: 'sale'
     }
   },
   methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
+    }
   },
 }
 </script>
