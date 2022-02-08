@@ -1,18 +1,28 @@
 <template>
-  <input type="text" ref="name">
-  <button @click="handleClick">click me</button>
+  <Modal 
+    :title="title" 
+    :content="content"
+    :theme="theme"
+  />
 </template>
 
 <script>
+import Modal from './components/Modal.vue'
+
 export default {
   name: 'App',
-  methods: {
-    handleClick() {
-      alert(this.$refs.name.value)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      title: 'Ninja Pizza',
+      content: 'We don\'t make pizza. We make ninjas.',
+      theme: 'sale'
     }
-  }
+  },
+  methods: {
+  },
 }
 </script>
 
