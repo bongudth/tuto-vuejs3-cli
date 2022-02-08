@@ -2,11 +2,16 @@
   <button @click="toggleModal">open modal</button>
   <div v-show="showModal">
     <Modal
-      :title="title"
-      :content="content"
       :theme="theme"
       @close="toggleModal"
-    />
+    >
+      <template v-slot:links>
+        <a href="#">sign up</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>{{ title }}</h1>
+      <p>{{ content }}</p>
+    </Modal>
   </div>
 </template>
 
