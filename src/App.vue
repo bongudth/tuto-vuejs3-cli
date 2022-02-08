@@ -1,6 +1,6 @@
 <template>
   <button @click="toggleModal">open modal</button>
-  <div v-show="showModal">
+  <teleport to=".modal" v-show="showModal">
     <Modal
       :theme="theme"
       @close="toggleModal"
@@ -12,7 +12,7 @@
       <h1>{{ title }}</h1>
       <p>{{ content }}</p>
     </Modal>
-  </div>
+  </teleport>
 </template>
 
 <script>
